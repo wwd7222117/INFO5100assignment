@@ -23,7 +23,7 @@ class Employee {
 
     // Getter for `name`. Return the current `name` data
     public String getName() {
-    	return this.name;
+    	return name;
     }
 
     // Setter for `name`. Set `name` data
