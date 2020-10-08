@@ -1,20 +1,19 @@
 package Assignment4;
-import java.lang.Math;
 
 class Circle {
 	private double radius;
 	private String color;
-	Circle(){
+	public Circle(){
 		radius = 1.0;
 		color = "red";
 	}
 	
-	Circle(double radius){
+	public Circle(double radius){
 		this.radius = radius;
 		color = "red";
 	}
 	
-	Circle(double radius,String color){
+	public Circle(double radius,String color){
 		this.radius = radius;
 		this.color = color;
 	}
@@ -42,22 +41,22 @@ class Circle {
 
 class Cylinder extends Circle{
 	private double height;
-	Cylinder(){
+	public Cylinder(){
 		super();
 		height = 1.0;
 	}
 	
-	Cylinder(double height){
+	public Cylinder(double height){
 		super();
 		this.height = height;
 	}
 	
-	Cylinder(double height, double radius){
+	public Cylinder(double height, double radius){
 		super(radius);
 		this.height = height;
 	}
 	
-	Cylinder(double height, double radius, String color){
+	public Cylinder(double height, double radius, String color){
 		super(radius,color);
 		this.height = height;
 	}
@@ -75,6 +74,9 @@ class Cylinder extends Circle{
 	}
 	
 	@Override
+	//we have overridden the getArea memthod, so the subclass can not get base area correctly if we use getArea() again. 
+	//In the assignment the methods and attributes have been set, nor a new method and a attribute can be added into Class.
+	//To solve the problem, using getVolume()/getHeight() can help users get the base area.
 	public double getArea() {
 		return 2.0*Math.PI*this.getRadius()*(this.getRadius()+height);
 	}
